@@ -1,0 +1,37 @@
+{
+  "log": { "access": "/dev/null", "error": "/dev/null", "loglevel": "none" },
+  "inbounds": [
+    {
+      "port": 8001,
+      "protocol": "vless",
+      "settings": {
+        "clients": [{ "id": "0ff0350e-c001-495b-a6a1-13b962590375", "flow": "xtls-rprx-vision" }],
+        "decryption": "none",
+        "fallbacks": [
+          { "dest": 15841 }, { "path": "/vless-argo", "dest": 15842 },
+          { "path": "/vmess-argo", "dest": 15843 }
+        ]
+      },
+      "streamSettings": { "network": "tcp" }
+    },
+    {
+      "port": 15841, "listen": "127.0.0.1", "protocol": "vless",
+      "settings": { "clients": [{ "id": "0ff0350e-c001-495b-a6a1-13b962590375" }], "decryption": "none" },
+      "streamSettings": { "network": "ws", "security": "none" }
+    },
+    {
+      "port": 15842, "listen": "127.0.0.1", "protocol": "vless",
+      "settings": { "clients": [{ "id": "0ff0350e-c001-495b-a6a1-13b962590375", "level": 0 }], "decryption": "none" },
+      "streamSettings": { "network": "ws", "security": "none", "wsSettings": { "path": "/vless-argo" } },
+      "sniffing": { "enabled": true, "destOverride": ["http", "tls", "quic"], "metadataOnly": false }
+    },
+    {
+      "port": 15843, "listen": "127.0.0.1", "protocol": "vmess",
+      "settings": { "clients": [{ "id": "0ff0350e-c001-495b-a6a1-13b962590375", "alterId": 0 }] },
+      "streamSettings": { "network": "ws", "wsSettings": { "path": "/vmess-argo" } },
+      "sniffing": { "enabled": true, "destOverride": ["http", "tls", "quic"], "metadataOnly": false }
+    }
+  ],
+  "dns": { "servers": ["https+local://8.8.8.8/dns-query"] },
+  "outbounds": [ {"protocol": "freedom", "tag": "direct" },{"protocol": "blackhole","tag": "block" } ]
+}

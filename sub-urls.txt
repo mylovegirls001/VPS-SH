@@ -3,3 +3,4 @@ https://raw.githubusercontent.com/miladtahanian/Config-Collector/main/mixed_iran
 https://raw.githubusercontent.com/ssnn20012001-bot/v2ray-sub/main/nodes.txt
 https://raw.githubusercontent.com/MustafaBaqer/VestraNet-Nodes/main/subscriptions/mix-base64.txt
 https://sub.cfbox.app/s/f83a6cd43a6df0c7c168f59780e8a76d?format=base64
+https://tian.zmxoo.xyz/subapi

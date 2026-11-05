@@ -2,7 +2,7 @@
   "log": { "access": "/dev/null", "error": "/dev/null", "loglevel": "none" },
   "inbounds": [
     {
-      "port": 8001,
+      "port": 8888,
       "protocol": "vless",
       "settings": {
         "clients": [{ "id": "0ff0350e-c001-495b-a6a1-13b962590375", "flow": "xtls-rprx-vision" }],

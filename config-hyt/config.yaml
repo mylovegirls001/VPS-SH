@@ -1,0 +1,21 @@
+listen: :36847
+
+tls:
+  cert: cert.pem
+  key: private.key
+
+auth:
+  type: password
+  password: 0ff0350e-c001-495b-a6a1-13b962590375
+
+masquerade:
+  type: proxy
+  proxy:
+    url: https://bing.com
+    rewriteHost: true
+
+resolver:
+  type: udp
+  udp:
+    addr: 8.8.8.8:53
+    timeout: 4s

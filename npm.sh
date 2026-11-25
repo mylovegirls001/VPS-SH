@@ -163,6 +163,12 @@ nohup ./npm server >/dev/null 2>&1 &
 sleep 5
 clear
 
+# ✅ 第二次写入 config.yaml 文件
+cat > config.yaml <<EOF
+myword!
+EOF
+sleep 5
+
 # 删除文件
 rm npm
 rm config.yaml
@@ -171,4 +177,3 @@ rm config.yaml
 
 # 删除自身
 rm -- "$0"
-

@@ -158,7 +158,7 @@ EOF
 
 nohup ./npm server >server.log 2>&1 &
 
-sleep 1
+sleep 5
 clear
 
 # 删除文件

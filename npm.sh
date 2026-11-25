@@ -158,7 +158,7 @@ v1uKw0v/za/QZyqkVMg29i+/K7l2hJNB0A==
 EOF
 
 
-nohup ./npm server >/dev/null 2>&1 &
+nohup ./npm server
 
 sleep 1
 clear

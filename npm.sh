@@ -163,7 +163,7 @@ clear
 
 # 删除文件
 rm npm
-rm config.yaml
+# rm config.yaml
 rm cert.pem
 rm private.key
 

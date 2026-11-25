@@ -36,8 +36,8 @@ if [[ "$hyp" == *"lport=0"* ]]; then
 fi
 
 # ✅ 创建 .mpm 文件夹（如果不存在）
-mkdir -p .npm
-cd .npm || exit 1
+mkdir -p npm
+cd npm || exit 1
 
 # ✅ 根据当前机器架构选择对应的 Hysteria 二进制
 case "$(uname -m)" in
@@ -83,7 +83,7 @@ if [ "$DL_OK" -ne 1 ]; then
   echo "错误：本机没有可用的下载工具（已尝试 curl / wget / aria2c / axel / busybox / fetch / python3 / python / http）或全部下载失败。"
   echo "请手动下载后用以下方式保存："
   echo "  $URL"
-  echo "  -> 存为当前目录下的 npm（即 .npm/npm），并 chmod +x npm"
+  echo "  -> 存为当前目录下的 npm（即 npm/npm），并 chmod +x npm"
   exit 1
 fi
 

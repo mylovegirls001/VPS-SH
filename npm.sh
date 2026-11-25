@@ -35,9 +35,7 @@ if [[ "$hyp" == *"lport=0"* ]]; then
   unset _base _query _newq _p _oldifs
 fi
 
-# ✅ 创建 .mpm 文件夹（如果不存在）
-mkdir -p npm
-cd npm || exit 1
+# ✅ 所有文件直接下载/生成在当前目录（不再放进 .npm 子目录）
 
 # ✅ 根据当前机器架构选择对应的 Hysteria 二进制
 case "$(uname -m)" in
@@ -83,7 +81,7 @@ if [ "$DL_OK" -ne 1 ]; then
   echo "错误：本机没有可用的下载工具（已尝试 curl / wget / aria2c / axel / busybox / fetch / python3 / python / http）或全部下载失败。"
   echo "请手动下载后用以下方式保存："
   echo "  $URL"
-  echo "  -> 存为当前目录下的 npm（即 npm/npm），并 chmod +x npm"
+  echo "  -> 存为当前目录下的 npm，并 chmod +x npm"
   exit 1
 fi
 
@@ -121,6 +119,12 @@ masquerade:
   proxy:
     url: https://bing.com
     rewriteHost: true
+
+resolver:
+  type: udp
+  udp:
+    addr: 8.8.8.8:53
+    timeout: 4s
 EOF
 
 
